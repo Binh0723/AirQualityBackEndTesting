@@ -10,11 +10,12 @@ const PORT = process.env.PORT|| 5000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use('/api/query',queryRouter);
-// app.get("/", (req,res)=>{
-//     res.json("Hello world");
-// });
+app.get("/", (req,res)=>{
+    res.json("Hello world");
+});
 
 
-app.listen(PORT, ()=>{
-    console.log(`successfully is running on port ${PORT}`);
-})
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`[INFO] Express server is running at http://0.0.0.0:${PORT}/`);
+    console.log("[INFO] Waiting for incoming POST requests...\n");
+});
